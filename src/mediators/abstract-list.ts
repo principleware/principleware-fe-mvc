@@ -36,7 +36,7 @@ export const AbstractListCtor = ClassBuilder.extend({
     Properties: 'dataProvider,dataParams,deepCopy,useModel,enableRefresh,enableInfinite,onUpdateView,viewInstance',
 
     init: function(settings: IAbstractListCtorOptions) {
-        var self = this;
+        const self = this;
         self._settings = settings;
         self._viewInstance = noopViewInstance;
         self._dataProvider = settings.dataProvider || null;
@@ -52,9 +52,8 @@ export const AbstractListCtor = ClassBuilder.extend({
     },
 
     generateItemsInternal: function(collection) {
-        var self, newData;
-        self = this;
-        newData = [];
+        const self = this;
+        const newData = [];
         if (self._useModel) {
             collection.forEach(function(item) {
                 newData.push(item);
