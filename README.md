@@ -1,6 +1,6 @@
 # Pirncipleware-fe-mvc
 
-This project consists of a set of high-level building blocks about constructing observable data, memory relational database, ngrx store, and more. 
+This project consists of a set of high-level components for building mvc-based applications. 
 
 ## Install 
 
