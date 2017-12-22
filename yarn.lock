@@ -4754,7 +4754,7 @@ pretty-hrtime@^1.0.0:
 
 "principleware-fe-data@https://github.com/principleware/principleware-fe-data.git":
   version "1.0.0"
-  resolved "https://github.com/principleware/principleware-fe-data.git#42d7168497116ab470c7c62da46567f160365534"
+  resolved "https://github.com/principleware/principleware-fe-data.git#6bdc7110fdf716770433b813d59f4003527feb5d"
   dependencies:
     "@types/backbone" "^1.3.42"
     "@types/backbone.paginator" "^2.0.31"
