@@ -22,7 +22,7 @@ import { noopViewInstance } from './noop-view-instance';
 
 const _ = dependencies.underscore;
 
-export interface IAbstractListCtorOptions {
+export interface IListMediatorCtorOptions {
     dataProvider?: any;
     dataParams?: any;
     deepCopy?: boolean;
@@ -31,7 +31,7 @@ export interface IAbstractListCtorOptions {
     enableInfinite: boolean;
 }
 
-export interface IPublicAbstractList {
+export interface IListMediatorPublic {
 
     dataProvider(value?: any): any;
     dataParams(value?: any): any;
@@ -48,8 +48,8 @@ export interface IPublicAbstractList {
     renderData(async?: boolean): void;
 }
 
-export interface ICompleteAbstractList extends IPublicAbstractList {
-    _settings: IAbstractListCtorOptions;
+export interface IListMediatorDev extends IListMediatorPublic {
+    _settings: IListMediatorCtorOptions;
     _viewInstance: IViewInstance;
     _dataProvider: any;
     _dataParams: any;
@@ -77,12 +77,12 @@ export interface ICompleteAbstractList extends IPublicAbstractList {
     startServiceImpl(): void;
 }
 
-export const AbstractListCtor = ClassBuilder.extend({
+export const ListMediator = ClassBuilder.extend({
 
     Properties: 'dataProvider,dataParams,deepCopy,useModel,enableRefresh,enableInfinite,onUpdateView,viewInstance',
 
-    init: function(settings: IAbstractListCtorOptions) {
-        const self: ICompleteAbstractList = this;
+    init: function(settings: IListMediatorCtorOptions) {
+        const self: IListMediatorDev = this;
         self._settings = settings;
         self._viewInstance = noopViewInstance;
         self._dataProvider = settings.dataProvider || null;
@@ -98,7 +98,7 @@ export const AbstractListCtor = ClassBuilder.extend({
     },
 
     generateItemsInternal: function(collection): any[] {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         const newData = [];
         if (self._useModel) {
             collection.forEach(function(item) {
@@ -125,7 +125,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @returns {Array} 
      */
     safelyReadDataProvider: function(): any[] {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         let models: any;
         if (self._dataProvider.models) {
             models = self._dataProvider.models;
@@ -146,7 +146,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @returns {} 
      */
     generateItems: function(async): void {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         const $data = self._viewInstance.$data;
         const models = self.safelyReadDataProvider();
         const newData = self.generateItemsInternal(models);
@@ -176,7 +176,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @returns {Promise} 
      */
     loadInitData: function(): PromiseLike<any> {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
 
         const dataProvider = self._dataProvider;
         // We must reset data beforehand
@@ -209,7 +209,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @function renderData
      */
     renderData: function(async?: boolean): void {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         const $data = self._viewInstance.$data;
         $data.clean();
         $data.hasMoreData(self._dataProvider.hasNextPage());
@@ -225,7 +225,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @function refresh
      */
     refresh: function(isProgramatic?: boolean): PromiseLike<any> {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         const $data = self._viewInstance.$data;
         const $refresher = self._viewInstance.$refresher;
         $data.hasMoreData(true);
@@ -246,7 +246,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      */
     loadMore: function(): PromiseLike<any> {
 
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         const dataProvider = self._dataProvider;
         const dataParams = self._dataParams;
         const $data = self._viewInstance.$data;
@@ -363,7 +363,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      * A destructor. 
      */
     tearDown: function() {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         if (self._dataProvider && self._dataProvider.off) {
             // Discard all listening
             self._dataProvider.off('all');
@@ -376,7 +376,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      * Start to bind a view to this mediator.
      */
     attachView: function(viewInstance): void {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         self._viewInstance = viewInstance;
 
         const $data = self._viewInstance.$data;
@@ -402,12 +402,12 @@ export const AbstractListCtor = ClassBuilder.extend({
     },
 
     detachView: function(): void {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         self._viewInstance = noopViewInstance;
     },
 
     _defaultStartService: function(): void {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         const $loader = self._viewInstance.$loader;
         $loader.show();
         const promise = self.loadInitData();
@@ -421,12 +421,12 @@ export const AbstractListCtor = ClassBuilder.extend({
      * This method needs to be overrided. 
      */
     startServiceImpl: function(): void {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         self._defaultStartService();
     },
 
     startService: function(viewInsance: IViewInstance, fromCache?: boolean): void {
-        const self: ICompleteAbstractList = this;
+        const self: IListMediatorDev = this;
         self.attachView(viewInsance);
         if (fromCache === true) {
             self.renderData();

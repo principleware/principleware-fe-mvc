@@ -8,10 +8,10 @@
 
 import * as dependencies from 'principleware-fe-dependencies';
 import {
-    AbstractListCtor,
-    IAbstractListCtorOptions,
-    IPublicAbstractList,
-    ICompleteAbstractList
+    ListMediator,
+    IListMediatorCtorOptions,
+    IListMediatorPublic,
+    IListMediatorDev
 } from './abstract-list';
 
 const _ = dependencies.underscore;
@@ -25,7 +25,8 @@ export interface IChangeSet {
     }
 }
 
-export interface IWritableAbstractListCtorOptions extends IAbstractListCtorOptions {
+export interface IWritableListMediatorCtorOptions
+    extends IListMediatorCtorOptions {
     globalProvider?: any;
     filterFlags?: {
         added?: boolean,
@@ -34,14 +35,16 @@ export interface IWritableAbstractListCtorOptions extends IAbstractListCtorOptio
     }
 }
 
-export interface IPublicWritableAbstractList extends IPublicAbstractList {
+export interface IWritableListMediatorPublic
+    extends IListMediatorPublic {
+
     viewLevelData(value?: any): any;
     globalProvider(value?: any): any;
 
     globalProviderFilter(evtCtx: any, changeSet: IChangeSet, rest: any): IChangeSet;
 }
 
-export interface ICompleteWritableAbstractList extends ICompleteAbstractList {
+export interface IWritableListMediatorDev extends IListMediatorDev {
     _viewLevelData: any;
     _viewProviderListeners: any;
     _globalProvider: any;
@@ -66,12 +69,12 @@ export interface ICompleteWritableAbstractList extends ICompleteAbstractList {
     stopListeningViewProvider();
 }
 
-export const WritableAbstractListCtor = AbstractListCtor.extend({
+export const WritableListMediator = ListMediator.extend({
 
     Properties: 'viewLevelData,globalProvider',
 
-    init: function(settings: IWritableAbstractListCtorOptions) {
-        const self: ICompleteWritableAbstractList = this;
+    init: function(settings: IWritableListMediatorCtorOptions) {
+        const self: IWritableListMediatorDev = this;
         self._super(settings);
 
         const CollectionCtor = backbone.Collection.extend();
@@ -88,7 +91,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      */
     globalProviderFilter: function(evtCtx: any, changeSet: IChangeSet, rest: any): IChangeSet {
         /*jslint unparam:true */
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         if (self._filterFlags.added &&
             changeSet.changes.added &&
             changeSet.changes.added.length > 0) {
@@ -115,7 +118,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      */
     onGlobalProviderUpdate: function() {
         /*jslint unparam:true */
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         const args = arguments;
 
         // If we are loading data, the data we are receiving is
@@ -160,7 +163,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      */
     onViewProviderUpdate: function(evtCtx: any, changeSet: IChangeSet, rest: any): void {
         /*jslint unparam:true */
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         const $data = self._viewInstance.$data;
         let newData: any;
         // Note that the interface of changeSet varies from
@@ -200,7 +203,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * So that we can clean up the view data. 
      */
     loadInitData: function() {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         self._viewLevelData.reset();
         return self._super();
     },
@@ -212,7 +215,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * @param {Object} globalProvider
      */
     startListeningGlobalProvider: function(globalProvider) {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         const onUpdate = function() {
             const args = arguments;
             // We have to schedule such update so that some other operations can
@@ -233,7 +236,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * It is usally used on the tearing down this mediator.
      */
     stopListeningGlobalProvider: function() {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         const listeners = self._globalProviderListeners;
         const globalProvider = self._globalProvider;
         for (const key in listeners) {
@@ -248,7 +251,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * This method is invoked on binding a view to this mediator.
      */
     startListeningViewProvider: function() {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         const onUpdate = function(evtCtx, changeSet, rest) {
             self.onViewProviderUpdate(evtCtx, changeSet, rest);
         };
@@ -263,7 +266,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * This method is invoked on unbinding a view to this mediator. 
      */
     stopListeningViewProvider: function() {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         const listeners = self._viewProviderListeners;
         for (const key in listeners) {
             if (listeners.hasOwnProperty(key)) {
@@ -281,7 +284,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * @returns {Array}
      */
     safelyReadDataProvider: function(): any[] {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         let models = self._super();
         models = _.filter(models, function(elem) {
             return !_.some(self._viewLevelData.models, function(item) {
@@ -301,7 +304,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * to be rendered. 
      */
     renderData: function(async?: boolean) {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         const $data = self._viewInstance.$data;
         $data.clean();
         $data.hasMoreData(self._dataProvider.hasNextPage());
@@ -318,7 +321,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * @param {} options
      */
     setUp: function(options) {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         self._super(options);
         if (self._globalProvider) {
             self.startListeningGlobalProvider(self._globalProvider);
@@ -329,7 +332,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * Override
      */
     tearDown: function() {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         // Call super
         self._super();
         // Tear off what we introduce in this class
@@ -345,7 +348,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * Override
      */
     attachView: function(viewInstance) {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         self._super(viewInstance);
         // Start to listen to changes on the view data provider.
         self.startListeningViewProvider();
@@ -355,7 +358,7 @@ export const WritableAbstractListCtor = AbstractListCtor.extend({
      * Override
      */
     detachView: function() {
-        const self: ICompleteWritableAbstractList = this;
+        const self: IWritableListMediatorDev = this;
         self._super();
         self.stopListeningViewProvider();
     }
