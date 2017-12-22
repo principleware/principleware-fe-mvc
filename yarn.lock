@@ -4753,8 +4753,8 @@ pretty-hrtime@^1.0.0:
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
 
 "principleware-fe-data@https://github.com/principleware/principleware-fe-data.git":
-  version "1.0.0"
-  resolved "https://github.com/principleware/principleware-fe-data.git#6bdc7110fdf716770433b813d59f4003527feb5d"
+  version "1.0.1"
+  resolved "https://github.com/principleware/principleware-fe-data.git#d661dc826ea2c652ba45265f305796af49a2c56e"
   dependencies:
     "@types/backbone" "^1.3.42"
     "@types/backbone.paginator" "^2.0.31"
@@ -4780,8 +4780,8 @@ pretty-hrtime@^1.0.0:
   resolved "https://github.com/principleware/principleware-fe-utilities.git#d0e5cca80066e1a5a0eb9a31a29978f48f05912b"
 
 "principleware-tinymce-tailor@https://github.com/principleware/principleware-tinymce-tailor.git":
-  version "4.7.4"
-  resolved "https://github.com/principleware/principleware-tinymce-tailor.git#fd1fa07101e0d9af98a755edb7f9680ba2087606"
+  version "4.7.5"
+  resolved "https://github.com/principleware/principleware-tinymce-tailor.git#bcd914dfabf10806ed4d384b0ef0dcb15eecb095"
 
 process-nextick-args@~1.0.6:
   version "1.0.7"
