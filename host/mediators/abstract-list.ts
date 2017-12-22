@@ -32,6 +32,12 @@ export interface IAbstractListCtorOptions {
 }
 
 export interface IPublicAbstractList {
+
+    dataProvider(value?: any): any;
+    dataParams(value?: any): any;
+
+    viewInsance(value?: IViewInstance): IViewInstance;
+
     startService(viewInsance: IViewInstance, fromCache?: boolean): void;
     stopService(): void;
 
@@ -40,9 +46,9 @@ export interface IPublicAbstractList {
     loadMore(): PromiseLike<any>;
 }
 
-interface ICompleteAbstractList extends IPublicAbstractList {
-    _settings: any;
-    _viewInstance: any;
+export interface ICompleteAbstractList extends IPublicAbstractList {
+    _settings: IAbstractListCtorOptions;
+    _viewInstance: IViewInstance;
     _dataProvider: any;
     _dataParams: any;
     _deepCopy: boolean;
