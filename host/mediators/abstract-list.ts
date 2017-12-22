@@ -44,6 +44,8 @@ export interface IPublicAbstractList {
     loadInitData(): PromiseLike<any>;
     refresh(isProgramatic?: boolean): PromiseLike<any>;
     loadMore(): PromiseLike<any>;
+
+    renderData(async?: boolean): void;
 }
 
 export interface ICompleteAbstractList extends IPublicAbstractList {
@@ -72,7 +74,6 @@ export interface ICompleteAbstractList extends IPublicAbstractList {
     attachView(viewInstance): void;
     detachView(): void;
 
-    renderData(async?: boolean): void;
     startServiceImpl(): void;
 }
 
