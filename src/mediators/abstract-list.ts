@@ -46,6 +46,9 @@ export interface IListMediatorPublic {
     loadMore(): PromiseLike<any>;
 
     renderData(async?: boolean): void;
+
+    setUp(options?: any): void;
+    tearDown(): void;
 }
 
 export interface IListMediatorDev extends IListMediatorPublic {
