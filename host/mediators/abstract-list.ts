@@ -31,12 +31,51 @@ export interface IAbstractListCtorOptions {
     enableInfinite: boolean;
 }
 
+export interface IPublicAbstractList {
+    startService(viewInsance: IViewInstance, fromCache?: boolean): void;
+    stopService(): void;
+
+    loadInitData(): PromiseLike<any>;
+    refresh(isProgramatic?: boolean): PromiseLike<any>;
+    loadMore(): PromiseLike<any>;
+}
+
+interface ICompleteAbstractList extends IPublicAbstractList {
+    _settings: any;
+    _viewInstance: any;
+    _dataProvider: any;
+    _dataParams: any;
+    _deepCopy: boolean;
+    _useModel: boolean;
+    _enableRefresh: boolean;
+    _enableInfinite: boolean;
+
+    _stateContext: any;
+
+    _isInit: boolean;
+    _isLoadingData: boolean;
+
+    safelyReadDataProvider(): any[];
+    generateItemsInternal(collection: any): any[];
+
+    onUpdateView(evt: any): any;
+    generateItems(async?: boolean): void;
+
+    _defaultStartService(): void;
+
+    attachView(viewInstance): void;
+    detachView(): void;
+
+    renderData(async?: boolean): void;
+    startServiceImpl(): void;
+}
+
 export const AbstractListCtor = ClassBuilder.extend({
 
     Properties: 'dataProvider,dataParams,deepCopy,useModel,enableRefresh,enableInfinite,onUpdateView,viewInstance',
 
     init: function(settings: IAbstractListCtorOptions) {
-        const self = this;
+        const self: ICompleteAbstractList = this;
         self._settings = settings;
         self._viewInstance = noopViewInstance;
         self._dataProvider = settings.dataProvider || null;
@@ -51,8 +90,8 @@ export const AbstractListCtor = ClassBuilder.extend({
         self._isLoadingData = false;
     },
 
-    generateItemsInternal: function(collection) {
-        const self = this;
+    generateItemsInternal: function(collection): any[] {
+        const self: ICompleteAbstractList = this;
         const newData = [];
         if (self._useModel) {
             collection.forEach(function(item) {
@@ -78,9 +117,9 @@ export const AbstractListCtor = ClassBuilder.extend({
      * Moreover, this method may be overriden. 
      * @returns {Array} 
      */
-    safelyReadDataProvider: function() {
-        var self, models;
-        self = this;
+    safelyReadDataProvider: function(): any[] {
+        const self: ICompleteAbstractList = this;
+        let models: any;
         if (self._dataProvider.models) {
             models = self._dataProvider.models;
         } else {
@@ -99,12 +138,11 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @param {Boolean} async
      * @returns {} 
      */
-    generateItems: function(async) {
-        var self, $data, newData, models;
-        self = this;
-        $data = self._viewInstance.$data;
-        models = self.safelyReadDataProvider();
-        newData = self.generateItemsInternal(models);
+    generateItems: function(async): void {
+        const self: ICompleteAbstractList = this;
+        const $data = self._viewInstance.$data;
+        const models = self.safelyReadDataProvider();
+        const newData = self.generateItemsInternal(models);
         // newData is ready
         if (async === true) {
             self.onUpdateView({
@@ -130,30 +168,30 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @function loadInitData
      * @returns {Promise} 
      */
-    loadInitData: function() {
-        var self, dataProvider, dataParams, $data, promise;
-        self = this;
-        dataParams = self._dataParams;
-        dataProvider = self._dataProvider;
-        $data = self._viewInstance.$data;
+    loadInitData: function(): PromiseLike<any> {
+        const self: ICompleteAbstractList = this;
+
+        const dataProvider = self._dataProvider;
         // We must reset data beforehand
         dataProvider.reset();
         // There are side effects if a parameter is passed in get*page
         // Therefore, we need to clone a new copy of this parameter
         self._isLoadingData = true;
-        promise = dataProvider.getFirstPage({ data: _.extend({}, dataParams) });
+
+        const dataParams = self._dataParams;
+        let promise = dataProvider.getFirstPage({ data: _.extend({}, dataParams) });
         promise = tojQueryDeferred(promise);
         promise.always(function() {
             self._isInit = false;
+            self._isLoadingData = false;
         });
+
         return promise.then(function() {
+            const $data = self._viewInstance.$data;
             $data.clean();
             $data.hasMoreData(dataProvider.hasNextPage());
             self.generateItems(true /*aync*/);
             // To ensure that isLoadingData happends very late. 
-            self._isLoadingData = false;
-        }, function() {
-            self._isLoadingData = false;
         });
     },
 
@@ -163,10 +201,9 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @param {Boolean} async
      * @function renderData
      */
-    renderData: function(async) {
-        var self, $data;
-        self = this;
-        $data = self._viewInstance.$data;
+    renderData: function(async?: boolean): void {
+        const self: ICompleteAbstractList = this;
+        const $data = self._viewInstance.$data;
         $data.clean();
         $data.hasMoreData(self._dataProvider.hasNextPage());
         self.generateItems(async === true);
@@ -180,17 +217,16 @@ export const AbstractListCtor = ClassBuilder.extend({
      * is due to an internal call, without user interaction.
      * @function refresh
      */
-    refresh: function(isProgramatic) {
-        var self, $data, $refresher, prms;
-        self = this;
-        $data = self._viewInstance.$data;
-        $refresher = self._viewInstance.$refresher;
+    refresh: function(isProgramatic?: boolean): PromiseLike<any> {
+        const self: ICompleteAbstractList = this;
+        const $data = self._viewInstance.$data;
+        const $refresher = self._viewInstance.$refresher;
         $data.hasMoreData(true);
         // Refresh loader
         $refresher.show(isProgramatic);
-        prms = self.loadInitData();
-        prms = tojQueryDeferred(prms);
-        return prms.always(function() {
+        const prms = self.loadInitData();
+        const anotherP = tojQueryDeferred(prms);
+        return anotherP.always(function() {
             $refresher.hide(isProgramatic);
         });
     },
@@ -201,34 +237,39 @@ export const AbstractListCtor = ClassBuilder.extend({
      * indicator at the end.
      * @function loadMore
      */
-    loadMore: function() {
-        var self, dataProvider, dataParams, $data, $moreLoader, prms;
-        self = this;
-        dataProvider = self._dataProvider;
-        dataParams = self._dataParams;
-        $data = self._viewInstance.$data;
-        $moreLoader = self._viewInstance.$moreLoader;
+    loadMore: function(): PromiseLike<any> {
+
+        const self: ICompleteAbstractList = this;
+        const dataProvider = self._dataProvider;
+        const dataParams = self._dataParams;
+        const $data = self._viewInstance.$data;
+        const $moreLoader = self._viewInstance.$moreLoader;
+
         // loadMore may be issued before init
         if (self._isInit) {
             $moreLoader.hide();
             return liftIntoPromise(true, null);
         }
+
         if (self._isLoadingData) {
             // We do not disable infinite scroll complete ...
             // because we want to prevent from two time loadMore
             // and one disable finally is sufficient to remove inifinite scroll indicator.
             return liftIntoPromise(true, null);
         }
+
         if (!dataProvider.hasNextPage()) {
             $data.hasMoreData(false);
             $moreLoader.hide();
             return liftIntoPromise(true, null);
         }
+
         $moreLoader.show();
+
         // We must clone a copy dataParams, as there are side
         // effects in this parameter
         self._isLoadingData = true;
-        prms = dataProvider.getNextPage({ data: _.extend({}, dataParams) }).then(function() {
+        const prms = dataProvider.getNextPage({ data: _.extend({}, dataParams) }).then(function() {
             $data.hasMoreData(dataProvider.hasNextPage());
             self.generateItems(true /* async */);
             // To ensure that isLoading happends very later, we have to put isLoading in two functions.
@@ -236,8 +277,9 @@ export const AbstractListCtor = ClassBuilder.extend({
         }, function() {
             self._isLoadingData = false;
         });
-        prms = tojQueryDeferred(prms);
-        return prms.always(function() {
+        const anotherP = tojQueryDeferred(prms);
+
+        return anotherP.always(function() {
             $moreLoader.hide();
         });
     },
@@ -249,7 +291,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @returns {Boolean}
      */
     stateChanged: function() {
-        var stateContext = this._stateContext;
+        const stateContext = this._stateContext;
         if (stateContext.enableSearch === true) {
             return stateContext.searchModel.isConfirmed() && stateContext.searchModel.hashCode() !== stateContext.searchCriteria.hashCode;
         }
@@ -261,20 +303,20 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @function updateStateAndReload
      */
     updateStateAndReload: function() {
-        var self, stateContext, $data, $loader, prms;
-        self = this;
-        stateContext = self._stateContext;
-        $data = self._viewInstance.$data;
-        $loader = self._viewInstance.$loader;
+        const self = this;
+        const stateContext = self._stateContext;
+        const $data = self._viewInstance.$data;
+        const $loader = self._viewInstance.$loader;
         if (stateContext.enableSearch === true) {
             stateContext.searchCriteria = stateContext.searchModel.generateFilter();
             self.dataParams(stateContext.searchCriteria.filter);
             $data.updateSearchCriteria(stateContext.searchCriteria);
         }
         $loader.show();
-        prms = self.loadInitData();
-        prms = tojQueryDeferred(prms);
-        prms.always(function() {
+        const prms = self.loadInitData();
+        const anotherP = tojQueryDeferred(prms);
+
+        anotherP.always(function() {
             $loader.hide();
         });
     },
@@ -286,8 +328,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      * @param {Object} options
      */
     setUp: function(options) {
-        var self = this,
-            searchSettings;
+        const self = this;
 
         options = options || {};
 
@@ -302,7 +343,7 @@ export const AbstractListCtor = ClassBuilder.extend({
             // Keep the search settings into the state context,
             // because these settings are used later for deciding if we
             // need to recompute data parameters or not
-            searchSettings = options.searchSettings;
+            const searchSettings = options.searchSettings;
             self._stateContext.searchURL = searchSettings.searchURL;
             self._stateContext.searchModelGuid = searchSettings.searchModelGuid;
             self._stateContext.searchModel = searchSettings.searchModel;
@@ -315,7 +356,7 @@ export const AbstractListCtor = ClassBuilder.extend({
      * A destructor. 
      */
     tearDown: function() {
-        var self = this;
+        const self: ICompleteAbstractList = this;
         if (self._dataProvider && self._dataProvider.off) {
             // Discard all listening
             self._dataProvider.off('all');
@@ -327,11 +368,11 @@ export const AbstractListCtor = ClassBuilder.extend({
     /**
      * Start to bind a view to this mediator.
      */
-    attachView: function(viewInstance) {
-        var self = this, $data;
+    attachView: function(viewInstance): void {
+        const self: ICompleteAbstractList = this;
         self._viewInstance = viewInstance;
 
-        $data = self._viewInstance.$data;
+        const $data = self._viewInstance.$data;
         if (self._enableRefresh) {
             $data.setRefreshCallback(function() {
                 self.refresh();
@@ -353,19 +394,18 @@ export const AbstractListCtor = ClassBuilder.extend({
         $data.init();
     },
 
-    detachView: function() {
-        var self = this;
+    detachView: function(): void {
+        const self: ICompleteAbstractList = this;
         self._viewInstance = noopViewInstance;
     },
 
-    _defaultStartService: function() {
-        var self, $loader, promise;
-        self = this;
-        $loader = self._viewInstance.$loader;
+    _defaultStartService: function(): void {
+        const self: ICompleteAbstractList = this;
+        const $loader = self._viewInstance.$loader;
         $loader.show();
-        promise = self.loadInitData();
-        promise = tojQueryDeferred(promise);
-        promise.always(function() {
+        const promise = self.loadInitData();
+        const anotherP = tojQueryDeferred(promise);
+        anotherP.always(function() {
             $loader.hide();
         });
     },
@@ -373,13 +413,13 @@ export const AbstractListCtor = ClassBuilder.extend({
     /**
      * This method needs to be overrided. 
      */
-    startServiceImpl: function() {
-        var self = this;
+    startServiceImpl: function(): void {
+        const self: ICompleteAbstractList = this;
         self._defaultStartService();
     },
 
-    startService: function(viewInsance, fromCache) {
-        var self = this;
+    startService: function(viewInsance: IViewInstance, fromCache?: boolean): void {
+        const self: ICompleteAbstractList = this;
         self.attachView(viewInsance);
         if (fromCache === true) {
             self.renderData();
@@ -388,8 +428,8 @@ export const AbstractListCtor = ClassBuilder.extend({
         }
     },
 
-    stopService: function() {
-        var self = this;
+    stopService: function(): void {
+        const self = this;
         self.detachView();
     }
 
