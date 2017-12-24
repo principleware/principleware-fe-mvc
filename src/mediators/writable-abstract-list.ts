@@ -150,7 +150,7 @@ export const WritableListMediator = ListMediator.extend({
                 });
             });
             if (candidate.length > 0) {
-                _.each(candidate, function(k, v) {
+                _.each(candidate, function(v, k) {
                     const atIndex = self.findAtIndex(v);
                     if (atIndex !== -1) {
                         self._viewLevelData.add(v, { at: atIndex });
