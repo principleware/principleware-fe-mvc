@@ -67,6 +67,8 @@ export interface IWritableListMediatorDev extends IListMediatorDev {
 
     startListeningViewProvider();
     stopListeningViewProvider();
+
+    findAtIndex(newModel: any): number;
 }
 
 export const WritableListMediator = ListMediator.extend({
@@ -110,6 +112,11 @@ export const WritableListMediator = ListMediator.extend({
         return null;
     },
 
+
+    findAtIndex: function(newModel): number {
+        return -1;
+    },
+
     /**
      * An internal method for listening to any change on the
      * global provider. Listening to the sole update event is
@@ -143,7 +150,14 @@ export const WritableListMediator = ListMediator.extend({
                 });
             });
             if (candidate.length > 0) {
-                self._viewLevelData.add(candidate);
+                _.each(candidate, function(k, v) {
+                    const atIndex = self.findAtIndex(v);
+                    if (atIndex !== -1) {
+                        self._viewLevelData.add(v, { at: atIndex });
+                    } else {
+                        self._viewLevelData.add(v);
+                    }
+                });
             }
         }
         if (changeSet.remove) {
