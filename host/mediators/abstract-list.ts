@@ -14,7 +14,7 @@
 import * as dependencies from 'principleware-fe-dependencies';
 
 import * as ClassBuilder from 'principleware-tinymce-tailor/src/util/Class';
-import { lift as liftIntoPromise } from 'principleware-fe-utilities/src/promise/monadic-operations';
+import { lift as liftIntoPromise } from 'principleware-fe-utilities/dist';
 import { tojQueryDeferred } from 'principleware-fe-data/src/net/inter-op';
 
 import { IViewInstance } from './interfaces';

@@ -12,7 +12,8 @@
     },
     "private": true,
     "dependencies": {
-        "principleware-fe-data": "https://github.com/principleware/principleware-fe-data.git"
+        "principleware-fe-data": "https://github.com/principleware/principleware-fe-data.git",
+        "principleware-fe-utilities": "https://github.com/principleware/principleware-fe-utilities.git#package"
     },
     "devDependencies": {
         "@angular/animations": "^4.0.0",
