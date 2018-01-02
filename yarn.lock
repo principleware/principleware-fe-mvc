@@ -4761,8 +4761,8 @@ pretty-hrtime@^1.0.0:
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
 
 "principleware-fe-data@https://github.com/principleware/principleware-fe-data.git":
-  version "1.0.7"
-  resolved "https://github.com/principleware/principleware-fe-data.git#4d8e0b8a3330e7b6c21e309def4566dbc02cf449"
+  version "1.0.8"
+  resolved "https://github.com/principleware/principleware-fe-data.git#3cd17f448f59befa165dab58f1efd9ca39755b33"
   dependencies:
     "@ngrx/store" "^4.1.1"
     "@ngrx/store-devtools" "^4.1.1"
@@ -4786,8 +4786,8 @@ pretty-hrtime@^1.0.0:
     model-js "^0.2.5"
 
 "principleware-fe-utilities@https://github.com/principleware/principleware-fe-utilities.git#package":
-  version "1.1.1"
-  resolved "https://github.com/principleware/principleware-fe-utilities.git#039a6692db9c8c5217cbb82ae974a3edc959a51c"
+  version "1.1.2"
+  resolved "https://github.com/principleware/principleware-fe-utilities.git#4423cefcd0d78f4d53477c89318fe47833a49cac"
 
 "principleware-tinymce-tailor@https://github.com/principleware/principleware-tinymce-tailor.git":
   version "4.7.5"
