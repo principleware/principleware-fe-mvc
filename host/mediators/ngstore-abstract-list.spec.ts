@@ -23,7 +23,7 @@ class MyStore extends CollectionAbstractStore<ITestData> {
     private _store: Store<ICollectionState<ITestData>>;
 
     constructor() {
-        super('add', 'remove', 'test');
+        super();
         const store = factory<ITestData>();
         const realStore = store.select('collection');
         this._store = realStore;
