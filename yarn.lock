@@ -191,8 +191,8 @@
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.45.tgz#58928a621d014ce6ab59c5a9c41071f7328b0ca9"
 
 "@types/jquery@*":
-  version "3.2.17"
-  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.17.tgz#01df9805dd5cf83a14cf5bfd81adced7d4fbd970"
+  version "3.2.18"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.18.tgz#a1cd262034cd8c79fa4d9b2a409d8f747ac2f72f"
 
 "@types/lodash@4.14.74":
   version "4.14.74"
@@ -225,8 +225,8 @@
     "@types/node" "*"
 
 "@types/underscore@*", "@types/underscore@^1.8.6":
-  version "1.8.6"
-  resolved "https://registry.yarnpkg.com/@types/underscore/-/underscore-1.8.6.tgz#3f4b9c5915379b420fe7de75bd8cb58a7d9835ed"
+  version "1.8.7"
+  resolved "https://registry.yarnpkg.com/@types/underscore/-/underscore-1.8.7.tgz#5e4fe5d18376647fb8a1fe33f8ded0d8ccfa783c"
 
 abbrev@1:
   version "1.1.1"
@@ -3241,6 +3241,10 @@ jasminewd2@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/jasminewd2/-/jasminewd2-2.2.0.tgz#e37cf0b17f199cce23bea71b2039395246b4ec4e"
 
+javascript-state-machine@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/javascript-state-machine/-/javascript-state-machine-3.0.1.tgz#327320336a20364e26b51d91662c14f14d41ea52"
+
 jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
@@ -4761,8 +4765,8 @@ pretty-hrtime@^1.0.0:
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
 
 "principleware-fe-data@https://github.com/principleware/principleware-fe-data.git":
-  version "1.0.9"
-  resolved "https://github.com/principleware/principleware-fe-data.git#89331a8c514a96b0e663370a44a95597accd5668"
+  version "1.1.11"
+  resolved "https://github.com/principleware/principleware-fe-data.git#3bb9c47c758de1a8ec0b98e6fc278f6f000e6d78"
   dependencies:
     "@ngrx/store" "^4.1.1"
     "@ngrx/store-devtools" "^4.1.1"
@@ -4774,24 +4778,26 @@ pretty-hrtime@^1.0.0:
     principleware-tinymce-tailor "https://github.com/principleware/principleware-tinymce-tailor.git"
 
 "principleware-fe-dependencies@https://github.com/principleware/principleware-fe-dependencies.git":
-  version "1.0.0"
-  resolved "https://github.com/principleware/principleware-fe-dependencies.git#871f5d98a271581804f61d29c803552813f9d193"
+  version "1.0.2"
+  resolved "https://github.com/principleware/principleware-fe-dependencies.git#5dceaa2e9b8b6d3e9253a995b2e9c28b5d39ad4f"
   dependencies:
     backbone "^1.3.3"
     backbone.paginator "^2.0.6"
     constraintjs "https://github.com/xlongtang/constraintjs.git"
+    javascript-state-machine "^3.0.1"
     jquery "^3.2.1"
     locache "https://github.com/principleware/locache.git"
     meld "^1.3.2"
     model-js "^0.2.5"
+    when "^3.7.8"
 
 "principleware-fe-utilities@https://github.com/principleware/principleware-fe-utilities.git#package":
   version "1.1.2"
   resolved "https://github.com/principleware/principleware-fe-utilities.git#4423cefcd0d78f4d53477c89318fe47833a49cac"
 
 "principleware-tinymce-tailor@https://github.com/principleware/principleware-tinymce-tailor.git":
-  version "4.7.5"
-  resolved "https://github.com/principleware/principleware-tinymce-tailor.git#bcd914dfabf10806ed4d384b0ef0dcb15eecb095"
+  version "4.7.6"
+  resolved "https://github.com/principleware/principleware-tinymce-tailor.git#12a40e28ae7c5d3b2505ae041e7d089323fc2196"
 
 process-nextick-args@~1.0.6:
   version "1.0.7"
@@ -6529,6 +6535,10 @@ websocket-driver@>=0.5.1:
 websocket-extensions@>=0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
+
+when@^3.7.8:
+  version "3.7.8"
+  resolved "https://registry.yarnpkg.com/when/-/when-3.7.8.tgz#c7130b6a7ea04693e842cdc9e7a1f2aa39a39f82"
 
 when@~3.6.x:
   version "3.6.4"
