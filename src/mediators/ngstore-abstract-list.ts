@@ -41,9 +41,9 @@ export const NgStoreListMediator = ListMediator.extend({
         return self._ngStore;
     },
 
-    safelyReadDataProvider: function(): any[] {
+    generateItemsInternal: function(collection): any[] {
         const self: INgStoreListMediatorDev = this;
-        const models = self._super();
+        const models = self._super(collection);
         // Safely push these models into view level data provider
         self._ngStore.add(models);
         // Then return
