@@ -191,8 +191,8 @@
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.45.tgz#58928a621d014ce6ab59c5a9c41071f7328b0ca9"
 
 "@types/jquery@*":
-  version "3.2.18"
-  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.18.tgz#a1cd262034cd8c79fa4d9b2a409d8f747ac2f72f"
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.0.tgz#6316ac20a1a13c5d521a2dc661befc7184f73f5b"
 
 "@types/lodash@4.14.74":
   version "4.14.74"
@@ -3246,8 +3246,8 @@ javascript-state-machine@^3.0.1:
   resolved "https://registry.yarnpkg.com/javascript-state-machine/-/javascript-state-machine-3.0.1.tgz#327320336a20364e26b51d91662c14f14d41ea52"
 
 jquery@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
 js-base64@^2.1.5, js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.4.0"
@@ -4765,8 +4765,8 @@ pretty-hrtime@^1.0.0:
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
 
 "principleware-fe-data@https://github.com/principleware/principleware-fe-data.git":
-  version "1.1.11"
-  resolved "https://github.com/principleware/principleware-fe-data.git#3bb9c47c758de1a8ec0b98e6fc278f6f000e6d78"
+  version "1.1.14"
+  resolved "https://github.com/principleware/principleware-fe-data.git#65ce5659e5170e9283b87f4762c3a263929d2168"
   dependencies:
     "@ngrx/store" "^4.1.1"
     "@ngrx/store-devtools" "^4.1.1"
