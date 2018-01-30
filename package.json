@@ -1,6 +1,6 @@
 {
     "name": "principleware-fe-mvc",
-    "version": "1.0.10",
+    "version": "1.0.12",
     "license": "MIT",
     "scripts": {
         "ng": "ng",

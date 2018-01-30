@@ -67,14 +67,18 @@ export const NgStoreListMediator = ListMediator.extend({
         $data.clean();
         $data.hasMoreData(self._dataProvider.hasNextPage());
 
-        const subscription = self._ngStore.getState().subscribe(savedData => {
-            subscription.unsubscribe();
-            const newData = self.generateItemsInternal(savedData);
+        let subscription = self._ngStore.getState().subscribe(savedData => {
+
+            const newData = self.generateItemsInternal(savedData.items);
             if (async === true) {
                 $data.asyncPush(newData);
             } else {
                 $data.syncPush(newData);
             }
+
+            setTimeout(() => {
+                subscription.unsubscribe();
+            }, 1);
         });
     }
 
