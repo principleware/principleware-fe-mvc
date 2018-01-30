@@ -30,6 +30,9 @@
             ],
             "data-flow": [
                 "../node_modules/model-js/dist/model.js"
+            ],
+            "state-machine": [
+                "../node_modules/principleware-fe-dependencies/dummy.js"                
             ]
         },      
         "sourceMap": true,
