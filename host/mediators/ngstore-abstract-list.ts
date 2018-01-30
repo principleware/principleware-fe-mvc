@@ -6,11 +6,16 @@ import {
     ICollectionStore
 } from 'principleware-fe-data/src/generic-store/collection-store.interface';
 
+
 import {
     ListMediator,
     IListMediatorCtorOptions,
     IListMediatorPublic,
     IListMediatorDev
+} from './abstract-list';
+
+export {
+    IListMediatorCtorOptions,
 } from './abstract-list';
 
 export interface INgStoreListMediatorPublic extends IListMediatorPublic {
@@ -25,7 +30,7 @@ export interface INgStoreListMediatorDev extends IListMediatorDev {
 
 export const NgStoreListMediator = ListMediator.extend({
 
-    init: function(settings: IListMediatorDev) {
+    init: function(settings: IListMediatorCtorOptions) {
         const self: INgStoreListMediatorDev = this;
         self._super(settings);
         self._ngStore = null;
@@ -48,5 +53,29 @@ export const NgStoreListMediator = ListMediator.extend({
         self._ngStore.add(models);
         // Then return
         return models;
+    },
+
+    /**
+     * Override.
+     * This method uses the data from the ngstore, instead of the
+     * the current remote data provider, to generate the list of data
+     * to be rendered. 
+     */
+    renderData: function(async?: boolean) {
+        const self: INgStoreListMediatorDev = this;
+        const $data = self._viewInstance.$data;
+        $data.clean();
+        $data.hasMoreData(self._dataProvider.hasNextPage());
+
+        const subscription = self._ngStore.getState().subscribe(savedData => {
+            subscription.unsubscribe();
+            const newData = self.generateItemsInternal(savedData);
+            if (async === true) {
+                $data.asyncPush(newData);
+            } else {
+                $data.syncPush(newData);
+            }
+        });
     }
+
 });
