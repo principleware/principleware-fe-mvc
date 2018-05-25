@@ -11,10 +11,10 @@
  * Note that this is an sbtract class; you cannot create an instance of it.
  */
 
-import * as dependencies from 'principleware-fe-dependencies';
+import * as dependencies from 'polpware-fe-dependencies';
 
-import * as ClassBuilder from 'principleware-tinymce-tailor/src/util/Class';
-import { lift as liftIntoPromise, tojQueryDeferred } from 'principleware-fe-utilities/dist';
+import * as ClassBuilder from 'polpware-tinymce-tailor/src/util/Class';
+import { lift as liftIntoPromise, tojQueryDeferred } from 'polpware-fe-utilities/dist';
 
 import { IViewInstance } from './interfaces';
 import { noopViewInstance } from './noop-view-instance';
@@ -123,8 +123,8 @@ export const ListMediator = ClassBuilder.extend({
      * Computes the set of models in the current data provider.
      * Note that we support all kinds of data providers, backbone
      * or something similar backbone.
-     * Moreover, this method may be overriden. 
-     * @returns {Array} 
+     * Moreover, this method may be overriden.
+     * @returns {Array}
      */
     safelyReadDataProvider: function(): any[] {
         const self: IListMediatorDev = this;
@@ -145,7 +145,7 @@ export const ListMediator = ClassBuilder.extend({
      * Note that we only perform the checking in this method;
      * it is Not necessary to peform this kind of checking in other overriden generateItems.
      * @param {Boolean} async
-     * @returns {} 
+     * @returns {}
      */
     generateItems: function(async): void {
         const self: IListMediatorDev = this;
@@ -175,7 +175,7 @@ export const ListMediator = ClassBuilder.extend({
      * without any loading indicator;
      * This method is used internally.
      * @function loadInitData
-     * @returns {Promise} 
+     * @returns {Promise}
      */
     loadInitData: function(): PromiseLike<any> {
         const self: IListMediatorDev = this;
@@ -200,13 +200,13 @@ export const ListMediator = ClassBuilder.extend({
             $data.clean();
             $data.hasMoreData(dataProvider.hasNextPage());
             self.generateItems(true /*aync*/);
-            // To ensure that isLoadingData happends very late. 
+            // To ensure that isLoadingData happends very late.
         });
     },
 
     /**
      * Render data without any loading operations. By default, this is invoked
-     * in the context of non-async mode. 
+     * in the context of non-async mode.
      * @param {Boolean} async
      * @function renderData
      */
@@ -333,7 +333,7 @@ export const ListMediator = ClassBuilder.extend({
     /**
      * Sets up context and hooks up data with view.
      * This method is only invoked once and should be one of the steps following constructor.
-     * In other words, it is part of a constructor. 
+     * In other words, it is part of a constructor.
      * @param {Object} options
      */
     setUp: function(options) {
@@ -362,7 +362,7 @@ export const ListMediator = ClassBuilder.extend({
     },
 
     /**
-     * A destructor. 
+     * A destructor.
      */
     tearDown: function() {
         const self: IListMediatorDev = this;
@@ -420,7 +420,7 @@ export const ListMediator = ClassBuilder.extend({
     },
 
     /**
-     * This method needs to be overrided. 
+     * This method needs to be overrided.
      */
     startServiceImpl: function(): void {
         const self: IListMediatorDev = this;

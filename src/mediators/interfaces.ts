@@ -17,31 +17,31 @@ export interface IViewInstance {
         setupSearch: any,
         updateSearchCriteria: any,
         getAncestor: any
-    },
+    };
     $loader: {
         show: any,
         hide: any
-    },
+    };
     $refresher: {
         show: any,
         hide: any
-    },
+    };
     $moreLoader: {
         show: any,
         hide: any
-    },
+    };
     $router: {
         go: any
-    },
+    };
     $render: {
         ready: any,
         destroy: any,
         asyncDigest: any
-    },
+    };
     $navBar: {
         /**
          * Get current state
-         * @returns {} 
+         * @returns {}
          */
         getState: any,
         /**
@@ -49,18 +49,18 @@ export interface IViewInstance {
          * @param {Boolean} s
          */
         setState: any
-    },
+    };
     $modal: {
         setData: any,
         getData: any,
         build: any
-    },
+    };
     $popover: {
         setData: any,
         getData: any,
         build: any,
         onHidden: any
-    },
+    };
     $popup: {
         setData: any,
         getData: any,
@@ -68,7 +68,7 @@ export interface IViewInstance {
         confirm: any,
         prompt: any,
         alert: any
-    },
+    };
     $progressBar: {
         create: any,
         reset: any,
@@ -77,9 +77,9 @@ export interface IViewInstance {
         destroy: any,
         destroyInfinite: any,
         showAbort: any
-    },
-    $alertify: any,
+    };
+    $alertify: any;
     $history: {
         goBack: any
-    }
+    };
 }
