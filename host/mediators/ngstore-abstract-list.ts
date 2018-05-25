@@ -59,7 +59,7 @@ export const NgStoreListMediator = ListMediator.extend({
      * Override.
      * This method uses the data from the ngstore, instead of the
      * the current remote data provider, to generate the list of data
-     * to be rendered. 
+     * to be rendered.
      */
     renderData: function(async?: boolean) {
         const self: INgStoreListMediatorDev = this;
@@ -67,7 +67,7 @@ export const NgStoreListMediator = ListMediator.extend({
         $data.clean();
         $data.hasMoreData(self._dataProvider.hasNextPage());
 
-        let subscription = self._ngStore.getState().subscribe(savedData => {
+        const subscription = self._ngStore.getState().subscribe(savedData => {
 
             const newData = self.generateItemsInternal(savedData.items);
             if (async === true) {

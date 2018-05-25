@@ -22,7 +22,7 @@ export interface IChangeSet {
         added: any[],
         removed: any[],
         merged: any[]
-    }
+    };
 }
 
 export interface IWritableListMediatorCtorOptions
@@ -32,7 +32,7 @@ export interface IWritableListMediatorCtorOptions
         added?: boolean,
         removed?: boolean,
         updated?: boolean
-    }
+    };
 }
 
 export interface IWritableListMediatorPublic
@@ -89,7 +89,7 @@ export const WritableListMediator = ListMediator.extend({
 
     /**
      * A filter on the global data provider.
-     * @returns {Boolean} 
+     * @returns {Boolean}
      */
     globalProviderFilter: function(evtCtx: any, changeSet: IChangeSet, rest: any): IChangeSet {
         /*jslint unparam:true */
@@ -131,7 +131,7 @@ export const WritableListMediator = ListMediator.extend({
         // If we are loading data, the data we are receiving is
         // the result of the current loading behavior.
         // We do not need to do anything. Instead, the loading behavior
-        // is responsible for rending data. 
+        // is responsible for rending data.
         if (self._isLoadingData) {
             return;
         }
@@ -172,7 +172,7 @@ export const WritableListMediator = ListMediator.extend({
     /**
      * An internal method for listening to the change on the view
      * data provider. Usually, such kind of listening shall be stopped
-     * when there is no view binding to the current midiator list. 
+     * when there is no view binding to the current midiator list.
      * @param {Object} args
      */
     onViewProviderUpdate: function(evtCtx: any, changeSet: IChangeSet, rest: any): void {
@@ -183,7 +183,7 @@ export const WritableListMediator = ListMediator.extend({
         // Note that the interface of changeSet varies from
         // events to events in Backbone. We have to be very careful.
         if (changeSet.changes.added && changeSet.changes.added.length > 0) {
-            // Check if we have data or not 
+            // Check if we have data or not
             newData = self.generateItemsInternal(changeSet.changes.added);
             self.onUpdateView({
                 add: true,
@@ -214,7 +214,7 @@ export const WritableListMediator = ListMediator.extend({
 
     /**
      * Override.
-     * So that we can clean up the view data. 
+     * So that we can clean up the view data.
      */
     loadInitData: function() {
         const self: IWritableListMediatorDev = this;
@@ -277,7 +277,7 @@ export const WritableListMediator = ListMediator.extend({
 
     /**
      * Stops listening to the change on the view data provider.
-     * This method is invoked on unbinding a view to this mediator. 
+     * This method is invoked on unbinding a view to this mediator.
      */
     stopListeningViewProvider: function() {
         const self: IWritableListMediatorDev = this;
@@ -315,7 +315,7 @@ export const WritableListMediator = ListMediator.extend({
      * Override.
      * This method uses the data from the view level data, instead of the
      * the current remote data provider, to generate the list of data
-     * to be rendered. 
+     * to be rendered.
      */
     renderData: function(async?: boolean) {
         const self: IWritableListMediatorDev = this;

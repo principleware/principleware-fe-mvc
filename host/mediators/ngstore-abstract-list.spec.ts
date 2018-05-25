@@ -40,7 +40,7 @@ describe('ngstore list mediator ctor', () => {
             enableRefresh: true,
             enableInfinite: true
         };
-        let m: INgStoreListMediatorPublic = new NgStoreListMediator(options);
+        const m: INgStoreListMediatorPublic = new NgStoreListMediator(options);
 
         expect(m).toBeDefined();
 

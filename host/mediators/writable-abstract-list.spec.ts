@@ -9,7 +9,7 @@ describe('writable list mediator', () => {
             enableRefresh: true,
             enableInfinite: true
         };
-        let m = new WritableListMediator(options);
+        const m = new WritableListMediator(options);
 
         expect(m).toBeDefined();
 

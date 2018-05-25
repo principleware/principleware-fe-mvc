@@ -48,7 +48,7 @@ export const noopViewInstance: IViewInstance = {
     $navBar: {
         /**
          * Get current state
-         * @returns {} 
+         * @returns {}
          */
         getState: noop,
         /**

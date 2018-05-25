@@ -10,7 +10,7 @@ describe('list mediator', () => {
             enableRefresh: true,
             enableInfinite: true
         };
-        let m = new ListMediator(options);
+        const m = new ListMediator(options);
 
         expect(m).toBeDefined();
 

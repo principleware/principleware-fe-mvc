@@ -86,7 +86,9 @@
               "host/tsconfig.app.json",
               "host/tsconfig.spec.json"
             ],
-            "exclude": []
+              "exclude": [
+                  "**/node_modules/**/*"                  
+              ]
           }
         }
       }
