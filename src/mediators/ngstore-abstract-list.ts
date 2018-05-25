@@ -1,10 +1,10 @@
 import {
     ICollectionItem
-} from 'principleware-fe-data/src/generic-store/collection-action-def';
+} from 'polpware-fe-data/src/generic-store/collection-action-def';
 
 import {
     ICollectionStore
-} from 'principleware-fe-data/src/generic-store/collection-store.interface';
+} from 'polpware-fe-data/src/generic-store/collection-store.interface';
 
 
 import {
@@ -59,7 +59,7 @@ export const NgStoreListMediator = ListMediator.extend({
      * Override.
      * This method uses the data from the ngstore, instead of the
      * the current remote data provider, to generate the list of data
-     * to be rendered. 
+     * to be rendered.
      */
     renderData: function(async?: boolean) {
         const self: INgStoreListMediatorDev = this;
@@ -68,6 +68,7 @@ export const NgStoreListMediator = ListMediator.extend({
         $data.hasMoreData(self._dataProvider.hasNextPage());
 
         const subscription = self._ngStore.getState().subscribe(savedData => {
+
             const newData = self.generateItemsInternal(savedData.items);
             if (async === true) {
                 $data.asyncPush(newData);

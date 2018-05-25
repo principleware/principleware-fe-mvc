@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;mediators/ngstore-abstract-list&quot; | Principleware typescript mvc (1.2.0)</title>
+	<title>&quot;mediators/ngstore-abstract-list&quot; | Polpware typescript mvc (2.0.0)</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">Principleware typescript mvc (1.2.0)</a>
+					<a href="../index.html" class="title">Polpware typescript mvc (2.0.0)</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -92,7 +92,7 @@
 					<div class="tsd-signature tsd-kind-icon">Ng<wbr>Store<wbr>List<wbr>Mediator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;ListMediator.extend({init: function(settings: IListMediatorCtorOptions) {const self: INgStoreListMediatorDev &#x3D; this;self._super(settings);self._ngStore &#x3D; null;},setNgStore: function &lt;T extends ICollectionItem&gt;(store: ICollectionStore&lt;T&gt;): void {const self: INgStoreListMediatorDev &#x3D; this;self._ngStore &#x3D; store;},getNgStore: function &lt;T extends ICollectionItem&gt;(): ICollectionStore&lt;T&gt; {const self: INgStoreListMediatorDev &#x3D; this;return self._ngStore;},safelyReadDataProvider: function(): any[] {const self: INgStoreListMediatorDev &#x3D; this;const models &#x3D; self._super();// Safely push these models into view level data providerself._ngStore.add(models);// Then returnreturn models;},/*** Override.* This method uses the data from the ngstore, instead of the* the current remote data provider, to generate the list of data* to be rendered.*/renderData: function(async?: boolean) {const self: INgStoreListMediatorDev &#x3D; this;const $data &#x3D; self._viewInstance.$data;$data.clean();$data.hasMoreData(self._dataProvider.hasNextPage());const subscription &#x3D; self._ngStore.getState().subscribe(savedData &#x3D;&gt; {const newData &#x3D; self.generateItemsInternal(savedData.items);if (async &#x3D;&#x3D;&#x3D; true) {$data.asyncPush(newData);} else {$data.syncPush(newData);}setTimeout(() &#x3D;&gt; {subscription.unsubscribe();}, 1);});}})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mediators/ngstore-abstract-list.ts:31</li>
+							<li>Defined in <a href="https://github.com/principleware/principleware-fe-mvc/blob/3f074e8/src/mediators/ngstore-abstract-list.ts#L31">mediators/ngstore-abstract-list.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>

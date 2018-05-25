@@ -7,6 +7,7 @@ PACKAGE_SOURCES := $(SRC_DIR)/mediators/interfaces.ts \
 $(SRC_DIR)/mediators/noop-view-instance.ts \
 $(SRC_DIR)/mediators/abstract-list.ts \
 $(SRC_DIR)/mediators/writable-abstract-list.ts \
+$(SRC_DIR)/mediators/ngstore-abstract-list.ts \
 $(SRC_DIR)/controllers/list-controller.ts 
 
 PACKAGE_TARGETS := $(subst $(SRC_DIR),$(DST_DIR),$(PACKAGE_SOURCES))
