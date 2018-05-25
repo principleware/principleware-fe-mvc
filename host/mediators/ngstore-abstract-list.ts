@@ -1,10 +1,10 @@
 import {
     ICollectionItem
-} from 'principleware-fe-data/src/generic-store/collection-action-def';
+} from 'polpware-fe-data/src/generic-store/collection-action-def';
 
 import {
     ICollectionStore
-} from 'principleware-fe-data/src/generic-store/collection-store.interface';
+} from 'polpware-fe-data/src/generic-store/collection-store.interface';
 
 
 import {

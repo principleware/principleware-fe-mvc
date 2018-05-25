@@ -1,4 +1,4 @@
-import * as ClassBuilder from 'principleware-tinymce-tailor/src/util/Class';
+import * as ClassBuilder from 'polpware-tinymce-tailor/src/util/Class';
 
 
 export const ListControllerCtor = ClassBuilder.extend({
