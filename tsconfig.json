@@ -14,7 +14,7 @@
                 "./node_modules/meld/meld.js"
             ],
             "when": [
-                "./node_modules/principleware-fe-dependencies/dummy.js"
+                "./node_modules/polpware-fe-dependencies/dummy.js"
             ],
             "backbone": [
                 "./node_modules/backbone/backbone.js"              
@@ -32,7 +32,7 @@
                 "./node_modules/model-js/dist/model.js"
             ],
             "state-machine": [
-                "./node_modules/principleware-fe-dependencies/dummy.js"                
+                "./node_modules/polpware-fe-dependencies/dummy.js"                
             ]
         },      
         "sourceMap": true,

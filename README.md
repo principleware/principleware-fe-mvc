@@ -1,4 +1,4 @@
-# Pirncipleware-fe-mvc
+# Polpware-fe-mvc
 
 This project consists of a set of high-level components for building mvc-based applications. 
 
@@ -6,7 +6,7 @@ This project consists of a set of high-level components for building mvc-based a
 
 To use it, clone this repo and install it from your disk or type the command as follows 
 
-> yarn add https://github.com/principleware/principleware-fe-mvc.git
+> yarn add https://github.com/polpware/polpware-fe-mvc.git
 
 ## Development and Test
 
@@ -24,4 +24,4 @@ To generate documents, run
 
 ## Documents 
 
-[Visit documents](https://principleware.github.io/principleware-fe-mvc)
+[Visit documents](https://polpware.github.io/polpware-fe-mvc)

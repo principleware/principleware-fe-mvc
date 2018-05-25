@@ -1,5 +1,5 @@
 {
-    "name": "principleware-fe-mvc",
+    "name": "polpware-fe-mvc",
     "version": "2.0.0",
     "license": "MIT",
     "scripts": {
@@ -12,8 +12,8 @@
     },
     "private": true,
     "dependencies": {
-        "principleware-fe-data": "https://github.com/principleware/principleware-fe-data.git#2.x",
-        "principleware-fe-utilities": "https://github.com/principleware/principleware-fe-utilities.git#package"        
+        "polpware-fe-data": "https://github.com/polpware/polpware-fe-data.git#2.x",
+        "polpware-fe-utilities": "https://github.com/polpware/polpware-fe-utilities.git#2.x"        
     },
     "devDependencies": {
         "@angular/animations": "^6.0.0",
