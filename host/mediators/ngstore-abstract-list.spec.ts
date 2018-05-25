@@ -14,23 +14,28 @@ import {
     IListMediatorCtorOptions,
     NgStoreListMediator
 } from './ngstore-abstract-list';
+import { Observable } from 'rxjs';
+import { GenericState } from 'polpware-fe-data/src/generic-store/reducers';
 
 interface ITestData extends ICollectionItem {
     name: string;
 }
 
 class MyStore extends CollectionAbstractStore<ITestData> {
-    private _store: Store<ICollectionState<ITestData>>;
+    private _store: Store<GenericState<ITestData>>;
 
     constructor() {
         super();
         const store = factory<ITestData>();
-        const realStore = store.select('collection');
-        this._store = realStore;
+        this._store = store;
     }
 
-    getState(): Store<ICollectionState<ITestData>> {
+    getStore(): Store<GenericState<ITestData>> {
         return this._store;
+    }
+
+    getState(): Observable<ICollectionState<ITestData>> {
+        return this._store.select('collection');
     }
 }
 
