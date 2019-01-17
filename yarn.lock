@@ -301,6 +301,10 @@
     tree-kill "1.2.0"
     webpack-sources "1.2.0"
 
+"@polpware/fe-data@https://github.com/polpware/polpware-fe-data.git":
+  version "3.0.1"
+  resolved "https://github.com/polpware/polpware-fe-data.git#86618204546b98be06d054039bed14fe47a13580"
+
 "@polpware/fe-utilities@https://github.com/polpware/polpware-fe-utilities.git":
   version "3.0.0"
   resolved "https://github.com/polpware/polpware-fe-utilities.git#07386964b9a990ba79c2d579085c54cf78c527d8"
