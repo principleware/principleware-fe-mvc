@@ -1,4 +1,4 @@
-import * as dependencies from 'polpware-fe-dependencies';
+import * as dependencies from '@polpware/fe-dependencies';
 
 import { IViewInstance } from './interfaces';
 

@@ -1,9 +1,9 @@
 import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime, buffer, map } from 'rxjs/operators';
 
-import * as hInterface from 'polpware-fe-dependencies';
+import * as hInterface from '@polpware/fe-dependencies';
 
-import { pushArray } from 'polpware-fe-utilities/dist';
+import { pushArray } from '@polpware/fe-utilities/dist';
 
 import {
     IWritableListMediatorDev,

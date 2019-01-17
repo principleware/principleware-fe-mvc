@@ -11,10 +11,10 @@
  * Note that this is an sbtract class; you cannot create an instance of it.
  */
 
-import * as dependencies from 'polpware-fe-dependencies';
+import * as dependencies from '@polpware/fe-dependencies';
 
 import * as ClassBuilder from 'polpware-tinymce-tailor/src/util/Class';
-import { lift as liftIntoPromise, tojQueryDeferred } from 'polpware-fe-utilities/dist';
+import { lift as liftIntoPromise, tojQueryDeferred } from '@polpware/fe-utilities/dist';
 
 import { IViewInstance } from './interfaces';
 import { noopViewInstance } from './noop-view-instance';
