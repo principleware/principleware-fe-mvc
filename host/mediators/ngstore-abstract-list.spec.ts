@@ -1,12 +1,12 @@
 import { Store } from '@ngrx/store';
-import { factory } from 'polpware-fe-data/src/generic-store/factory';
+import { factory } from '@polpware/fe-data/src/generic-store/factory';
 import {
     ICollectionItem,
     ICollectionState
-} from 'polpware-fe-data/src/generic-store/collection-action-def';
+} from '@polpware/fe-data/src/generic-store/collection-action-def';
 import {
     CollectionAbstractStore
-} from 'polpware-fe-data/src/generic-store/collection-abstract.store';
+} from '@polpware/fe-data/src/generic-store/collection-abstract.store';
 
 
 import {
@@ -15,7 +15,7 @@ import {
     NgStoreListMediator
 } from './ngstore-abstract-list';
 import { Observable } from 'rxjs';
-import { GenericState } from 'polpware-fe-data/src/generic-store/reducers';
+import { GenericState } from '@polpware/fe-data/src/generic-store/reducers';
 
 interface ITestData extends ICollectionItem {
     name: string;
