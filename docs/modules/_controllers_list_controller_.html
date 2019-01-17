@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;controllers/list-controller&quot; | Polpware typescript mvc (2.0.0)</title>
+	<title>&quot;controllers/list-controller&quot; | Polpware typescript mvc (3.0.0)</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">Polpware typescript mvc (2.0.0)</a>
+					<a href="../index.html" class="title">Polpware typescript mvc (3.0.0)</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -85,7 +85,7 @@
 					<div class="tsd-signature tsd-kind-icon">List<wbr>Controller<wbr>Ctor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;ClassBuilder.extend({Defaults: {MediatorCtor: null},Properties: &#x27;mediator,settings&#x27;,/*** Constructor* @param {Object} settings*/init: function(settings) {var self &#x3D; this;// We expect the following propertiesself._settings &#x3D; settings;self._isFirstTimeRendered &#x3D; true;self._mediator &#x3D; settings.mediator || null;self._mediatorFromCache &#x3D; !!self._mediator;},initMediator: function() {var self,settings,mediator,MediatorCtor;self &#x3D; this;if (self._mediator) {return self;}settings &#x3D; self._settings;MediatorCtor &#x3D; self.Defaults.MediatorCtor;mediator &#x3D; new MediatorCtor(settings);// Setup mediatorself.setupMediator(mediator);self._mediator &#x3D; mediator;return self;},setupMediator: function(mediator) {mediator.setUp();},start: function() {var self,settings,mediator;self &#x3D; this;settings &#x3D; self._settings;mediator &#x3D; self._mediator;// Set up destroysettings.$render.destroy(function() {mediator.stopService();});settings.$render.ready(function() {if (self._isFirstTimeRendered) {self._isFirstTimeRendered &#x3D; false;mediator.startService(settings, self._mediatorFromCache);}});}})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/principleware/principleware-fe-mvc/blob/3f074e8/src/controllers/list-controller.ts#L4">controllers/list-controller.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/polpware/polpware-fe-mvc/blob/817e9fa/src/controllers/list-controller.ts#L4">controllers/list-controller.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -111,6 +111,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_mediators_noop_view_instance_.html">"mediators/noop-<wbr>view-<wbr>instance"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_mediators_rxjs_powered_writable_abstract_list_.html">"mediators/rxjs-<wbr>powered-<wbr>writable-<wbr>abstract-<wbr>list"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="_mediators_writable_abstract_list_.html">"mediators/writable-<wbr>abstract-<wbr>list"</a>
