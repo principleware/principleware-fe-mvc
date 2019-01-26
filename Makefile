@@ -40,3 +40,10 @@ test:
 	echo $(PACKAGE_TARGETS)
 
 
+# deployment
+
+BuildDist := ./dist/polpware/fe-mvc
+BuildDoc := ./docs
+DeployTarget := ./deployment/polpware-fe-mvc
+
+include Makefile.deployment
