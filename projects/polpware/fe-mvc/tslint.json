@@ -1,0 +1,17 @@
+{
+  "extends": "../../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "polp-fe-mvc",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "polp-fe-mvc",
+      "kebab-case"
+    ]
+  }
+}
