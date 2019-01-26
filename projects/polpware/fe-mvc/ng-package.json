@@ -1,7 +1,10 @@
 {
-  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../../dist/polpware/fe-mvc",
-  "lib": {
-    "entryFile": "src/public_api.ts"
-  }
+    "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "../../../dist/polpware/fe-mvc",
+    "lib": {
+        "entryFile": "src/public_api.ts",
+        "umdModuleIds": {
+            "polpware-tinymce-tailor/src/util/Class": "polpware-tinymce-tailor/src/util/Class"
+        }      
+    }
 }
