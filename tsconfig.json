@@ -29,7 +29,7 @@
         "./node_modules/constraintjs/build/cjs.js"
       ],
       "data-flow": [
-        "./node_modules/model-js/dist/model.js"
+          "./node_modules/@polpware/fe-dependencies/dummy.js"
       ],
       "state-machine": [
         "./node_modules/@polpware/fe-dependencies/dummy.js"
