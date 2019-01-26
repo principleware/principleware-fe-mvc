@@ -1,10 +1,6 @@
 import {
-    ICollectionItem
-} from '@polpware/fe-data/src/generic-store/collection-action-def';
-
-import {
-    ICollectionStore
-} from '@polpware/fe-data/src/generic-store/collection-store.interface';
+    ICollectionItem, ICollectionStore
+} from '@polpware/fe-data';
 
 
 import {
