@@ -1,0 +1,3 @@
+[submodule "deployment/polpware-fe-mvc"]
+	path = deployment/polpware-fe-mvc
+	url = https://github.com/polpware-frontend-modules/polpware-fe-mvc.git
