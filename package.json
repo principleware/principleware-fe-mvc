@@ -10,7 +10,8 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "doc": "gulp doc",
-        "lib": "ng build @polpware/fe-mvc"
+        "lib": "ng build @polpware/fe-mvc",
+        "bump": "gulp bump"        
     },
     "private": true,
     "peerDependencies": {
