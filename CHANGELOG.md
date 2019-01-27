@@ -1,3 +1,6 @@
+## 3.0.1 (January 27, 2019)
+
+
 ## 0.1.0 (January 27, 2019)
   - Introduce gulp-bump package
   - Scripts for version
