@@ -4,7 +4,6 @@
     "lib": {
         "entryFile": "src/public_api.ts",
         "umdModuleIds": {
-            "polpware-tinymce-tailor/src/util/Class": "polpware-tinymce-tailor/src/util/Class"
         }      
     }
 }
