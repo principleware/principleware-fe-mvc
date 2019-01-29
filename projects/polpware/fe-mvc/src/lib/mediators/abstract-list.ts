@@ -13,7 +13,8 @@
 
 import * as dependencies from '@polpware/fe-dependencies';
 
-import * as ClassBuilder from 'polpware-tinymce-tailor/src/util/Class';
+const ClassBuilder = dependencies.Class;
+
 import { lift as liftIntoPromise, tojQueryDeferred } from '@polpware/fe-utilities';
 
 import { IViewInstance } from './interfaces';
