@@ -1104,6 +1104,33 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@polpware/fe-data@https://github.com/polpware-frontend-modules/polpware-fe-data.git":
+  version "9.0.0"
+  resolved "https://github.com/polpware-frontend-modules/polpware-fe-data.git#24da330595f3f5999e0423b9f25dca6a2ade8a35"
+  dependencies:
+    tslib "^1.10.0"
+
+"@polpware/fe-dependencies@https://github.com/polpware-frontend-modules/polpware-fe-dependencies.git":
+  version "1.5.0"
+  resolved "https://github.com/polpware-frontend-modules/polpware-fe-dependencies.git#5eff32e0495e8d7a5a4a2e833b6753d12611e326"
+  dependencies:
+    backbone "^1.4.0"
+    backbone.paginator "^2.0.8"
+    constraintjs "https://github.com/xlongtang/constraintjs.git"
+    javascript-state-machine "^3.1.0"
+    jquery "^3.5.1"
+    locache "https://github.com/polpware/locache.git"
+    meld "^1.3.2"
+    model-js "^0.2.5"
+    polpware-tinymce-tailor "https://github.com/polpware-frontend-modules/polpware-tinymce-tailor.git"
+    when "^3.7.8"
+
+"@polpware/fe-utilities@https://github.com/polpware-frontend-modules/polpware-fe-utilities.git":
+  version "9.0.0"
+  resolved "https://github.com/polpware-frontend-modules/polpware-fe-utilities.git#afd6f72610a164a4fa806ed8e8ae543318694fe8"
+  dependencies:
+    tslib "^1.10.0"
+
 "@rollup/plugin-commonjs@^11.0.2":
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-11.1.0.tgz#60636c7a722f54b41e419e1709df05c7234557ef"
@@ -1999,6 +2026,21 @@ bach@^1.0.0:
     async-done "^1.2.2"
     async-settle "^1.0.0"
     now-and-later "^2.0.0"
+
+backbone.paginator@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/backbone.paginator/-/backbone.paginator-2.0.8.tgz#3a7e34f0a8b97b096333587ed3048556b9eafdcb"
+  integrity sha512-8XS2CTbjnwMbJ/3Traa1te2RPecOGbZ9tc52T89pzo6NXlVEJDFnC++dp7CQLBUZpgk3g0veX8mUbEF4wbD2NQ==
+  dependencies:
+    backbone "1.1.2 || 1.2.3 || ^1.3.2"
+    underscore "^1.8.0"
+
+"backbone@1.1.2 || 1.2.3 || ^1.3.2", backbone@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/backbone/-/backbone-1.4.0.tgz#54db4de9df7c3811c3f032f34749a4cd27f3bd12"
+  integrity sha512-RLmDrRXkVdouTg38jcgHhyQ/2zjg7a8E6sz2zxfz21Hh17xDJYUHBZimVIt5fUyS8vbfpeSmTL3gUjTEvUV3qQ==
+  dependencies:
+    underscore ">=1.8.3"
 
 backo2@1.0.2:
   version "1.0.2"
@@ -3004,6 +3046,10 @@ constants-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
   integrity sha1-wguW2MYXdIqvHBYCF2DNJ/y4y3U=
+
+"constraintjs@https://github.com/xlongtang/constraintjs.git":
+  version "0.9.7-beta"
+  resolved "https://github.com/xlongtang/constraintjs.git#7bcd08bd9fbd6596dd978b201410fab502873f4e"
 
 content-disposition@0.5.3:
   version "0.5.3"
@@ -6006,6 +6052,11 @@ jasminewd2@^2.1.0:
   resolved "https://registry.yarnpkg.com/jasminewd2/-/jasminewd2-2.2.0.tgz#e37cf0b17f199cce23bea71b2039395246b4ec4e"
   integrity sha1-43zwsX8ZnM4jvqcbIDk5Uka07E4=
 
+javascript-state-machine@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/javascript-state-machine/-/javascript-state-machine-3.1.0.tgz#06eeb2136a6a19ae1b56105c25caec283dd5cd14"
+  integrity sha512-BwhYxQ1OPenBPXC735RgfB+ZUG8H3kjsx8hrYTgWnoy6TPipEy4fiicyhT2lxRKAXq9pG7CfFT8a2HLr6Hmwxg==
+
 jest-worker@25.1.0:
   version "25.1.0"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-25.1.0.tgz#75d038bad6fdf58eba0d2ec1835856c497e3907a"
@@ -6022,6 +6073,11 @@ jest-worker@^26.0.0:
     "@types/node" "*"
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
+
+jquery@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
+  integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -6435,6 +6491,10 @@ loader-utils@^1.2.3, loader-utils@^1.4.0:
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
+"locache@https://github.com/polpware/locache.git":
+  version "0.5.0"
+  resolved "https://github.com/polpware/locache.git#f93bb35868e541165de076d63bda399df6d83a08"
+
 locate-path@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-3.0.0.tgz#dbec3b3ab759758071b58fe59fc41871af21400e"
@@ -6677,6 +6737,11 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
+
+meld@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/meld/-/meld-1.3.2.tgz#8c3235fb5001b8796f8768818e9e4563b0de8066"
+  integrity sha1-jDI1+1ABuHlvh2iBjp5FY7DegGY=
 
 memory-fs@^0.4.0, memory-fs@^0.4.1:
   version "0.4.1"
@@ -6976,6 +7041,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4, mkdirp@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
+
+model-js@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/model-js/-/model-js-0.2.5.tgz#59550df6a04e9f1f785f282c3a7fbcd475addfb3"
+  integrity sha1-WVUN9qBOnx94XygsOn+81HWt37M=
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -7993,6 +8063,10 @@ plugin-log@^0.1.0:
   dependencies:
     chalk "^1.1.1"
     dateformat "^1.0.11"
+
+"polpware-tinymce-tailor@https://github.com/polpware-frontend-modules/polpware-tinymce-tailor.git":
+  version "4.7.9"
+  resolved "https://github.com/polpware-frontend-modules/polpware-tinymce-tailor.git#704c9133520c75b57fd6e9a8d82e0f3e02340590"
 
 portfinder@^1.0.26:
   version "1.0.28"
@@ -10538,6 +10612,11 @@ unc-path-regex@^0.1.2:
   resolved "https://registry.yarnpkg.com/unc-path-regex/-/unc-path-regex-0.1.2.tgz#e73dd3d7b0d7c5ed86fbac6b0ae7d8c6a69d50fa"
   integrity sha1-5z3T17DXxe2G+6xrCufYxqadUPo=
 
+underscore@>=1.8.3, underscore@^1.8.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.11.0.tgz#dd7c23a195db34267186044649870ff1bab5929e"
+  integrity sha512-xY96SsN3NA461qIRKZ/+qox37YXPtSBswMGfiNptr+wrt6ds4HaMw23TP612fEyGekRE6LNRiLYr/aqbHXNedw==
+
 undertaker-registry@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/undertaker-registry/-/undertaker-registry-1.0.1.tgz#5e4bda308e4a8a2ae584f9b9a4359a499825cc50"
@@ -11090,6 +11169,11 @@ websocket-extensions@>=0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
+
+when@^3.7.8:
+  version "3.7.8"
+  resolved "https://registry.yarnpkg.com/when/-/when-3.7.8.tgz#c7130b6a7ea04693e842cdc9e7a1f2aa39a39f82"
+  integrity sha1-xxMLan6gRpPoQs3J56Hyqjmjn4I=
 
 when@~3.6.x:
   version "3.6.4"

@@ -15,10 +15,10 @@
     },
     "private": true,
     "peerDependencies": {
+        "@polpware/fe-data": "https://github.com/polpware-frontend-modules/polpware-fe-data.git",
         "@polpware/fe-dependencies": "https://github.com/polpware-frontend-modules/polpware-fe-dependencies.git",
         "@polpware/fe-utilities": "https://github.com/polpware-frontend-modules/polpware-fe-utilities.git",
-        "polpware-tinymce-tailor": "https://github.com/polpware-frontend-modules/polpware-tinymce-tailor.git",
-        "@polpware/fe-data": "https://github.com/polpware-frontend-modules/polpware-fe-data.git"        
+        "polpware-tinymce-tailor": "https://github.com/polpware-frontend-modules/polpware-tinymce-tailor.git"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "~0.901.12",
@@ -57,10 +57,16 @@
         "protractor": "~5.4.2",
         "rxjs": "^6.6.3",
         "ts-node": "~8.3.0",
+        "tslib": "^1.10.0",
         "tslint": "~6.1.0",
-        "tslib": "^1.10.0",                
         "typedoc": "^0.18.0",
         "typescript": "3.8.3",
         "zone.js": "~0.10.2"
+    },
+    "dependencies": {
+        "@polpware/fe-data": "https://github.com/polpware-frontend-modules/polpware-fe-data.git",
+        "@polpware/fe-dependencies": "https://github.com/polpware-frontend-modules/polpware-fe-dependencies.git",
+        "@polpware/fe-utilities": "https://github.com/polpware-frontend-modules/polpware-fe-utilities.git",
+        "polpware-tinymce-tailor": "https://github.com/polpware-frontend-modules/polpware-tinymce-tailor.git"
     }
 }
