@@ -1,3 +1,8 @@
+## 9.0.0 (September 10, 2020)
+  - Upgrade to 9.0
+  - k
+  - Update package versions
+
 ## 3.0.2 (January 29, 2019)
   - Continue
   - Fix the use of polpware-tinymce-tailor
