@@ -257,7 +257,6 @@ export const ListMediator = ClassBuilder.extend({
 
         // loadMore may be issued before init
         if (self._isInit) {
-            $moreLoader.hide();
             return liftIntoPromise(true, null);
         }
 
@@ -270,7 +269,6 @@ export const ListMediator = ClassBuilder.extend({
 
         if (!dataProvider.hasNextPage()) {
             $data.hasMoreData(false);
-            $moreLoader.hide();
             return liftIntoPromise(true, null);
         }
 
