@@ -1,3 +1,11 @@
+## 9.0.1 (October 16, 2020)
+  - Fix bugs: Import statements and unnecessary hide for when loading more
+  - k
+  - Update packages
+  - Update peer dependencies
+  - Missed file
+  - Bump version
+
 ## 9.0.0 (September 10, 2020)
   - Upgrade to 9.0
   - k
