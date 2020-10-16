@@ -14,7 +14,7 @@
 import * as dependencies from '@polpware/fe-dependencies';
 
 import * as ClassBuilder from 'polpware-tinymce-tailor/src/util/Class';
-import { lift as liftIntoPromise, tojQueryDeferred } from '@polpware/fe-utilities/dist';
+import { lift as liftIntoPromise, tojQueryDeferred } from '@polpware/fe-utilities';
 
 import { IViewInstance } from './interfaces';
 import { noopViewInstance } from './noop-view-instance';
@@ -256,7 +256,6 @@ export const ListMediator = ClassBuilder.extend({
 
         // loadMore may be issued before init
         if (self._isInit) {
-            $moreLoader.hide();
             return liftIntoPromise(true, null);
         }
 
@@ -269,7 +268,6 @@ export const ListMediator = ClassBuilder.extend({
 
         if (!dataProvider.hasNextPage()) {
             $data.hasMoreData(false);
-            $moreLoader.hide();
             return liftIntoPromise(true, null);
         }
 
