@@ -1,3 +1,11 @@
+## 9.0.2 (January 27, 2021)
+  - Fix dependencies
+  - Update version
+  - Bump version to 9.0.1.
+  - Fix bugs: removing unnecessary hiding spinner on loading more
+  - Bump version to 9.0.1.
+  - Fix bugs: Import statements and unnecessary hide for when loading more
+
 ## 9.0.1 (October 16, 2020)
   - Fix bugs: removing unnecessary hiding spinner on loading more
   - k
