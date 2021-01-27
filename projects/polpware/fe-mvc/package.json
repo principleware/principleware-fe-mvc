@@ -4,7 +4,6 @@
     "peerDependencies": {
         "@angular/common": "^9.0.0",
         "@angular/core": "^9.0.0",
-        "@polpware/fe-data": "https://github.com/polpware-frontend-modules/polpware-fe-data.git",
-        "@polpware/fe-utilities": "https://github.com/polpware-frontend-modules/polpware-fe-utilities.git"
+        "@polpware/fe-data": "^9.0.0"
     }
 }
